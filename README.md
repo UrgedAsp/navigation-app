@@ -28,7 +28,7 @@ https://github.com/user-attachments/assets/7201fc39-55e3-4237-9169-842b34d1cf3e
 1. **Clonar el repositorio**
 
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/UrgedAsp/navigation-app.git
    cd navigation-app
    ```
 
@@ -120,49 +120,6 @@ navigation-app/
 
 - **ESLint** - Linter para JavaScript/TypeScript
 - **Prettier** - Formateador de código
-
-## 💡 Uso Básico
-
-### Crear una Nueva Ruta
-
-Crea un archivo en la carpeta `app/(stack)/`. Expo Router detectará automáticamente la ruta:
-
-```typescript
-// app/(stack)/newpage/index.tsx
-import { View, Text } from 'react-native';
-
-export default function NewPage() {
-  return (
-    <View className="flex-1 items-center justify-center">
-      <Text>Mi Nueva Página</Text>
-    </View>
-  );
-}
-```
-
-### Usando Componentes Personalizados
-
-```typescript
-import { CustomButton } from '@/components/shared/CustomButton';
-
-export default function MyScreen() {
-  return (
-    <CustomButton
-      title="Presionar"
-      onPress={() => console.log('Presionado')}
-    />
-  );
-}
-```
-
-### Accediendo al Store
-
-```typescript
-import { productsStore } from "@/store/products.store";
-
-// Usar el store
-const products = productsStore.products;
-```
 
 ## 📱 Plataformas Soportadas
 
