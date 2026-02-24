@@ -2,6 +2,8 @@
 
 Una aplicación móvil moderna construida con React Native, Expo y TypeScript que demuestra un sistema completo de navegación con gestión de estado.
 
+https://github.com/user-attachments/assets/7201fc39-55e3-4237-9169-842b34d1cf3e
+
 ## 🎯 Características
 
 - ✨ Navegación por pestañas (Bottom Tab Navigation)
