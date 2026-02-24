@@ -1,50 +1,176 @@
-# Welcome to your Expo app 👋
+# Navigation App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Una aplicación móvil moderna construida con React Native, Expo y TypeScript que demuestra un sistema completo de navegación con gestión de estado.
 
-## Get started
+## 🎯 Características
 
-1. Install dependencies
+- ✨ Navegación por pestañas (Bottom Tab Navigation)
+- 📱 Stack Navigation (Expo Router)
+- 🎨 Interfaz de usuario moderna con Tailwind CSS y NativeWind
+- 💾 Gestión de estado con Store personalizado
+- 🔐 TypeScript para seguridad de tipos
+- 📦 Gestión de productos con navegación dinámica
+- 👤 Perfiles de usuario y configuración
+- ⚡ Cross-platform (iOS, Android, Web)
+
+## 🚀 Requisitos Previos
+
+- **Node.js** (version 18 o superior)
+- **npm** o **yarn**
+- **Expo CLI** instalado globalmente
+- **Xcode** (para iOS en macOS)
+- **Android Studio** (para Android)
+
+## 📥 Instalación
+
+1. **Clonar el repositorio**
+
+   ```bash
+   git clone <your-repo-url>
+   cd navigation-app
+   ```
+
+2. **Instalar dependencias**
 
    ```bash
    npm install
+   # o
+   yarn install
    ```
 
-2. Start the app
-
+3. **Iniciar la aplicación**
    ```bash
-   npx expo start
+   npm start
    ```
 
-In the output, you'll find options to open the app in a
+## 🎮 Scripts Disponibles
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+| Comando                 | Descripción                              |
+| ----------------------- | ---------------------------------------- |
+| `npm start`             | Inicia el servidor de desarrollo de Expo |
+| `npm run ios`           | Ejecuta la app en iOS                    |
+| `npm run android`       | Ejecuta la app en Android                |
+| `npm run web`           | Ejecuta la app en el navegador web       |
+| `npm run lint`          | Analiza el código con ESLint             |
+| `npm run reset-project` | Reinicia el proyecto a su estado inicial |
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 📁 Estructura del Proyecto
 
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+navigation-app/
+├── app/                           # Aplicación principal
+│   ├── _layout.tsx               # Layout raíz
+│   ├── global.css                # Estilos globales
+│   ├── index.tsx                 # Pantalla principal
+│   └── (stack)/                  # Grupo de stack
+│       ├── _layout.tsx           # Layout del stack
+│       ├── home/                 # Pantalla de inicio
+│       │   └── index.tsx
+│       ├── products/             # Pantalla de productos
+│       │   ├── index.tsx         # Lista de productos
+│       │   └── [id].tsx          # Detalles de producto
+│       ├── profile/              # Pantalla de perfil
+│       │   └── index.tsx
+│       └── settings/             # Pantalla de configuración
+│           └── index.tsx
+├── components/
+│   └── shared/                   # Componentes compartidos
+│       └── CustomButton.tsx
+├── store/
+│   └── products.store.ts         # Gestión de estado de productos
+├── assets/
+│   ├── fonts/                    # Fuentes tipográficas
+│   └── images/                   # Imágenes e iconos
+├── tailwind.config.js            # Configuración de Tailwind CSS
+├── tsconfig.json                 # Configuración de TypeScript
+├── babel.config.js               # Configuración de Babel
+├── metro.config.js               # Configuración de Metro Bundler
+├── app.json                      # Configuración de Expo
+└── package.json                  # Dependencias del proyecto
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 🛠️ Tecnologías Utilizadas
 
-## Learn more
+### Framework y Herramientas
 
-To learn more about developing your project with Expo, look at the following resources:
+- **React Native** - Framework para aplicaciones móviles
+- **Expo** - Plataforma para desarrollar aplicaciones React Native
+- **Expo Router** - Sistema de ruteo para navegación
+- **TypeScript** - Lenguaje tipado
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### Navegación
 
-## Join the community
+- **React Navigation** - Sistema de navegación robusto
+- **Bottom Tab Navigation** - Navegación por pestañas inferior
+- **Stack Navigation** - Navegación mediante pilas
 
-Join our community of developers creating universal apps.
+### Estilo
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- **Tailwind CSS** - Framework de utilidades CSS
+- **NativeWind** - Integración de Tailwind con React Native
+- **Expo Icons** - Biblioteca de iconos
+
+### Gestión de Estado
+
+- Store personalizado en [app/store](store/)
+
+### Desarrollo
+
+- **ESLint** - Linter para JavaScript/TypeScript
+- **Prettier** - Formateador de código
+
+## 💡 Uso Básico
+
+### Crear una Nueva Ruta
+
+Crea un archivo en la carpeta `app/(stack)/`. Expo Router detectará automáticamente la ruta:
+
+```typescript
+// app/(stack)/newpage/index.tsx
+import { View, Text } from 'react-native';
+
+export default function NewPage() {
+  return (
+    <View className="flex-1 items-center justify-center">
+      <Text>Mi Nueva Página</Text>
+    </View>
+  );
+}
+```
+
+### Usando Componentes Personalizados
+
+```typescript
+import { CustomButton } from '@/components/shared/CustomButton';
+
+export default function MyScreen() {
+  return (
+    <CustomButton
+      title="Presionar"
+      onPress={() => console.log('Presionado')}
+    />
+  );
+}
+```
+
+### Accediendo al Store
+
+```typescript
+import { productsStore } from "@/store/products.store";
+
+// Usar el store
+const products = productsStore.products;
+```
+
+## 📱 Plataformas Soportadas
+
+- ✅ **iOS** - Dispositivos y emuladores iPhone
+- ✅ **Android** - Dispositivos y emuladores Android
+
+## 📚 Recursos Útiles
+
+- [Documentación de Expo](https://docs.expo.dev/)
+- [Expo Router](https://docs.expo.dev/routing/introduction/)
+- [React Navigation](https://reactnavigation.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [NativeWind](https://www.nativewind.dev/)
