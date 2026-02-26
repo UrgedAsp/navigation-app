@@ -8,7 +8,7 @@ const ProductScreen = () => {
 
   const product = products.find((p) => p.id === id);
 
-  if (!product) return <Redirect href={"/home"} />;
+  if (!product) return <Redirect href={"/tabs/(stack)/home"} />;
 
   return (
     <View className="px-5 mt-2">
